@@ -1,4 +1,4 @@
-import 'package:designs/src/screens/headers_screen.dart';
+import 'package:designs/src/src.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,8 +11,6 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HeaderScreen()
-    );
+        debugShowCheckedModeBanner: false, home: SquareAnimatedScreen());
   }
 }
