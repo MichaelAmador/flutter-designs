@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../src.dart';
 
@@ -7,6 +8,11 @@ class HeaderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(child: Scaffold(body: HeaderWaveGradient()));
+    final appTheme = context.watch<ThemeChanger>();
+    return SafeArea(
+        child: Scaffold(
+            body: HeaderWave(
+      color: appTheme.theme.colorScheme.secondary,
+    )));
   }
 }

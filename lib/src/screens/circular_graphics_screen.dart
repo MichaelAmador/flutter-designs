@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:designs/src/src.dart';
+import 'package:provider/provider.dart';
 
 class CircularGraphicsScreen extends StatefulWidget {
   const CircularGraphicsScreen({super.key});
@@ -28,7 +29,7 @@ class _CircularGraphicsScreenState extends State<CircularGraphicsScreen> {
                 secondaryColor: Colors.brown,
               ),
               _CustomRadialProgress(
-                percentaje: percentaje,
+                percentaje: percentaje * 1.2,
                 primaryColor: Colors.indigo,
                 secondaryColor: Colors.pink,
               ),
@@ -42,12 +43,12 @@ class _CircularGraphicsScreenState extends State<CircularGraphicsScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               _CustomRadialProgress(
-                percentaje: percentaje,
+                percentaje: percentaje * 1.4,
                 primaryColor: Colors.green,
                 secondaryColor: const Color.fromARGB(255, 26, 243, 243),
               ),
               _CustomRadialProgress(
-                percentaje: percentaje,
+                percentaje: percentaje * 1.6,
                 primaryColor: Colors.red,
                 secondaryColor: const Color.fromARGB(255, 12, 39, 61),
               ),
@@ -81,13 +82,14 @@ class _CustomRadialProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = context.watch<ThemeChanger>();
     return SizedBox(
       width: 180,
       height: 180,
       child: RadialProgress(
         percentaje: percentaje,
         primaryColor: primaryColor,
-        secondaryColor: secondaryColor,
+        secondaryColor: appTheme.theme.textTheme.bodyLarge!.color!,
         strokeWithPrimary: 10,
         strokeWithSecondary: 20,
       ),

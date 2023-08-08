@@ -188,7 +188,8 @@ class _HeaderCurvePainter extends CustomPainter {
 }
 
 class HeaderWave extends StatelessWidget {
-  const HeaderWave({super.key});
+  final Color color;
+  const HeaderWave({super.key, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -196,17 +197,21 @@ class HeaderWave extends StatelessWidget {
       height: double.infinity,
       width: double.infinity,
       child: CustomPaint(
-        painter: _HeaderWavePainter(),
+        painter: _HeaderWavePainter(color),
       ),
     );
   }
 }
 
 class _HeaderWavePainter extends CustomPainter {
+  final Color color;
+
+  _HeaderWavePainter(this.color);
+
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint();
-    paint.color = const Color(0xff615AAB);
+    paint.color = color;
     paint.style = PaintingStyle.fill;
     paint.strokeWidth = 2;
 

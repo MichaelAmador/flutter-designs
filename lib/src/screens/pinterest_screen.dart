@@ -23,6 +23,7 @@ class _PinterestMenuLocation extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final show = context.watch<_MenuModel>().show;
+    final appTheme = context.watch<ThemeChanger>().theme;
     return Positioned(
       bottom: 30,
       child: SizedBox(
@@ -30,8 +31,8 @@ class _PinterestMenuLocation extends StatelessWidget {
           child: Align(
               child: PinterestMenu(
             show: show,
-            // backgrounColor: Colors.red,
-            // activeColor: Colors.indigo,
+            backgrounColor: appTheme.scaffoldBackgroundColor,
+            activeColor: appTheme.colorScheme.secondary,
             items: [
               PinterestButton(
                   onPressed: () {
